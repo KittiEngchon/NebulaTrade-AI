@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Trading Dashboard - 11 AI Modules + 11 Rookie AIs</title>
+<style>
+  /* Reset and basic */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #eee;
+  }
+  header {
+    background: #1f1f1f;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    padding: 1rem;
+    min-height: 90vh;
+  }
+  /* AI module boxes */
+  .ai-box {
+    background: #222;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0 8px #0f9d58;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .ai-header {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #0f9d58;
+    padding-bottom: 0.25rem;
+  }
+  .ai-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  /* Layout for the AI modules */
+  #ai1, #ai2, #ai3 {
+    grid-column: 1;
+  }
+  #ai4, #ai5, #ai6 {
+    grid-column: 2;
+  }
+  #ai7, #ai8, #ai9 {
+    grid-column: 3;
+  }
+  #alert-system {
+    grid-column: 1 / span 2;
+    background: #440000;
+    box-shadow: 0 0 10px #cc0000;
+  }
+  #strategy-optimizer {
+    grid-column: 3;
+    background: #003344;
+    box-shadow: 0 0 10px #00ccff;
+  }
+
+  /* Rookie AIs section */
+  #rookie-ai-section {
+    grid-column: 1 / span 3;
+    background: #222;
+    margin-top: 1rem;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0 10px #ffaa00;
+  }
+  #rookie-ai-section h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: #ffaa00;
+  }
+  #rookie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .rookie-ai-card {
+    background: #333;
+    border-radius: 6px;
+    padding: 0.75rem;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 0 5px #ffaa00;
+  }
+  .rookie-ai-name {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .rookie-ai-rating {
+    color: #ffaa00;
+    font-weight: 600;
+  }
+
+  /* Scrollbar */
+  .ai-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  .ai-content::-webkit-scrollbar-track {
+    background: #222;
+  }
+  .ai-content::-webkit-scrollbar-thumb {
+    background: #0f9d58;
+    border-radius: 4px;
+  }
+
+</style>
+</head>
+<body>
+
+<header>AI Trading Dashboard - 11 AI Modules + 11 Rookie AIs</header>
+
+<main>
+  <!-- AI 11 modules -->
+
+  <section id="ai1" class="ai-box">
+    <div class="ai-header">1. Price Prediction (LSTM)</div>
+    <div class="ai-content" id="price-prediction">
+      Loading price prediction...
+    </div>
+  </section>
+
+  <section id="ai2" class="ai-box">
+    <div class="ai-header">2. Sentiment Analysis (NLP)</div>
+    <div class="ai-content" id="sentiment-analysis">
+      Loading sentiment data...
+    </div>
+  </section>
+
+  <section id="ai3" class="ai-box">
+    <div class="ai-header">3. On-Chain Data Analyzer</div>
+    <div class="ai-content" id="onchain-analyzer">
+      Loading on-chain insights...
+    </div>
+  </section>
+
+  <section id="ai4" class="ai-box">
+    <div class="ai-header">4. Reinforcement Learning Trader</div>
+    <div class="ai-content" id="rl-trader">
+      Loading trading strategy...
+    </div>
+  </section>
+
+  <section id="ai5" class="ai-box">
+    <div class="ai-header">5. Risk Management</div>
+    <div class="ai-content" id="risk-management">
+      Loading risk analysis...
+    </div>
+  </section>
+
+  <section id="ai6" class="ai-box">
+    <div class="ai-header">6. Arbitrage Detector</div>
+    <div class="ai-content" id="arbitrage-detector">
+      Loading arbitrage opportunities...
+    </div>
+  </section>
+
+  <section id="ai7" class="ai-box">
+    <div class="ai-header">7. Market Trend Classifier</div>
+    <div class="ai-content" id="trend-classifier">
+      Loading market trends...
+    </div>
+  </section>
+
+  <section id="ai8" class="ai-box">
+    <div class="ai-header">8. Volume & Liquidity Monitor</div>
+    <div class="ai-content" id="volume-monitor">
+      Loading volume & liquidity...
+    </div>
+  </section>
+
+  <section id="ai9" class="ai-box">
+    <div class="ai-header">9. Whale Movement Tracker</div>
+    <div class="ai-content" id="whale-tracker">
+      Loading whale activity...
+    </div>
+  </section>
+
+  <section id="alert-system" class="ai-box">
+    <div class="ai-header">10. Alert System (Anomaly Detection)</div>
+    <div class="ai-content" id="alert-system-content">
+      Monitoring anomalies...
+    </div>
+  </section>
+
+  <section id="strategy-optimizer" class="ai-box">
+    <div class="ai-header">11. Strategy Optimizer</div>
+    <div class="ai-content" id="strategy-optimizer-content">
+      Optimizing strategies...
+    </div>
+  </section>
+
+  <!-- Rookie AIs section -->
+  <section id="rookie-ai-section">
+    <h2>Rookie AI Traders - Rating & Performance</h2>
+    <div id="rookie-list">
+      <!-- Dynamically populated -->
+    </div>
+  </section>
+</main>
+
+<script>
+  // ตัวอย่างข้อมูล AI modules อัปเดตข้อมูลจำลอง (Placeholder)
+  const aiData = {
+    pricePrediction: "Price expected to rise 3% in next 12 hours.",
+    sentimentAnalysis: "Positive sentiment on social media increased by 20%.",
+    onchainAnalyzer: "Large wallet accumulation detected in last 6 hours.",
+    rlTrader: "Current policy: Buy at dips, sell at resistance levels.",
+    riskManagement: "Volatility high; recommended stop-loss at 5%.",
+    arbitrageDetector: "Potential arbitrage opportunity between Binance and KuCoin.",
+    trendClassifier: "Market is currently in a sideways trend.",
+    volumeMonitor: "24h volume increased by 15%, liquidity stable.",
+    whaleTracker: "Whales moved 500 BTC worth of tokens recently.",
+    alertSystem: "No anomalies detected in last 30 minutes.",
+    strategyOptimizer: "Strategy optimized with 0.8% expected gain."
+  };
+
+  // แสดงข้อมูลลงในแต่ละกล่อง
+  document.getElementById('price-prediction').textContent = aiData.pricePrediction;
+  document.getElementById('sentiment-analysis').textContent = aiData.sentimentAnalysis;
+  document.getElementById('onchain-analyzer').textContent = aiData.onchainAnalyzer;
+  document.getElementById('rl-trader').textContent = aiData.rlTrader;
+  document.getElementById('risk-management').textContent = aiData.riskManagement;
+  document.getElementById('arbitrage-detector').textContent = aiData.arbitrageDetector;
+  document.getElementById('trend-classifier').textContent = aiData.trendClassifier;
+  document.getElementById('volume-monitor').textContent = aiData.volumeMonitor;
+  document.getElementById('whale-tracker').textContent = aiData.whaleTracker;
+  document.getElementById('alert-system-content').textContent = aiData.alertSystem;
+  document.getElementById('strategy-optimizer-content').textContent = aiData.strategyOptimizer;
+
+  // ข้อมูล AI ดาวรุ่ง 11 ตัวพร้อมคะแนน
+  const rookieAIs = [
+    { name: "Rookie AI #1", rating: 4.5 },
+    { name: "Rookie AI #2", rating: 4.2 },
+    { name: "Rookie AI #3", rating: 4.0 },
+    { name: "Rookie AI #4", rating: 3.8 },
+    { name: "Rookie AI #5", rating: 3.7 },
+    { name: "Rookie AI #6", rating: 3.6 },
+    { name: "Rookie AI #7", rating: 3.4 },
+    { name: "Rookie AI #8", rating: 3.2 },
+    { name: "Rookie AI #9", rating: 3.1 },
+    { name: "Rookie AI #10", rating: 3.0 },
+    { name: "Rookie AI #11", rating: 2.9 }
+  ];
+
+  const rookieList = document.getElementById('rookie-list');
+  rookieAIs.forEach(ai => {
+    const card = document.createElement('div');
+    card.className = 'rookie-ai-card';
+    card.innerHTML = `
+      <div class="rookie-ai-name">${ai.name}</div>
+      <div class="rookie-ai-rating">Rating: ${ai.rating.toFixed(1)} / 5</div>
+    `;
+    rookieList.appendChild(card);
+  });
+
+  // TODO: เชื่อมต่อ API จริง หรือระบบ AI จริงในอนาคตที่นี่
+
+</script>
+
+</body>
+</html>
