@@ -20,3 +20,15 @@ NebulaTrade AI คือระบบ AI เทรดคริปโตแบบ�
 
 ## 🧱 โครงสร้างโปรเจกต์
 
+nebula-trade-ai/
+├── backend/
+│ ├── main.py # FastAPI backend
+│ ├── ai_agents/ # AI แต่ละตัว
+│ ├── db/models.py # MongoDB models
+│ └── services/binance_client.py
+├── frontend/
+│ ├── index.html # Dashboard UI
+│ └── app.js
+├── .env # API keys
+├── requirements.txt
+└── README.md
